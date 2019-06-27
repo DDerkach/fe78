@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+
+.header {
+  background-color: #000;
+  color: #fff;
+  line-height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.menu {
+  float: right;
+}
+
+.menu-link {
+  display: inline-block;
+  padding: 0 10px;
+  position: relative;
+}
+
+.menu-link:hover {
+  background-color: red;
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.menu-link:hover .dd {
+  display: block;
+  max-height:300px;
+  overflow:hidden;
+  -webkit-transition:max-height 2s linear;
+  -moz-transition:max-height 2s linear;
+  transition:max-height 2s linear;
+
+}
+
+.dd {
+  background-color: #000;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 150px;
+  max-height:0px;
+  overflow:hidden;
+  -webkit-transition:max-height 0.4s linear;
+  -moz-transition:max-height 0.4s linear;
+  transition:max-height 0.4s linear;
+
+}
+
+.dd-link {
+  display: block;
+  padding: 10px;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.dd-link:hover {
+  background-color: red;
+  -webkit-transition: all 2s ease;
+  -moz-transition: all 2s ease;
+  -o-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+.intro {
+  height: 100vh;
+  background-image: url('./2.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+}
+
+.intro-title {
+  color: #fff;
+  font-size: 50px;
+  text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  text-align: center;
+}
+
+.intro-overlay {
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+
+.transform {
+  height: 100vh;
+  position: relative;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  /* transform: translate(-50%, -50%); */
+  /* transform: skew(45deg); */
+  /* Hw */
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.box::before {
+  content: '';
+  background-color: gold;
+  display: block;
+  transition: all 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+}
+
+
+.box:hover::before {
+  height: 150%;
+  width: 150%;
+  top: -25%;
+  left: -25%;
+  /* background-color: gold; */
+  /* transform: translate(-50%, -50%) rotate(1turn); */
+}
+
+
+
+/* 1) Создать куб (понадобится perspective)
+2) Эффект при наведении в меню у пунктов
+3) Выпадающее меню в шапке должно выезжать плавно сверху (изначально выпадающее меню dsiplay: none) */
+
+
+
+
+.wrapper {
+  width: 200px;
+  height: 200px;
+  margin: 75px 0 0 75px;
+  border: none;
+}
+.cube {
+  width: 100%;
+  height: 100%;
+  backface-visibility: visible;
+  perspective-origin: 150% 150%;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: visible;
+  -webkit-perspective-origin: 150% 150%;
+  -webkit-transform-style: preserve-3d;
+  perspective: 500px;
+  -webkit-perspective: 500px;
+}
+.face {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: none;
+  line-height: 100px;
+  font-family: sans-serif;
+  font-size: 60px;
+  color: white;
+  text-align: center;
+}
+.front {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateZ(50px);
+  -webkit-transform: translateZ(50px);
+}
+.back {
+  background: #b0c1c9;
+  color: black;
+  transform: rotateY(180deg) translateZ(50px);
+  -webkit-transform: rotateY(180deg) translateZ(50px);
+}
+.right {
+  background: #9eadb4;
+  transform: rotateY(90deg) translateZ(50px);
+  -webkit-transform: rotateY(90deg) translateZ(50px);
+}
+.left {
+  background: #8c9aa0;
+  transform: rotateY(-90deg) translateZ(50px);
+  -webkit-transform: rotateY(-90deg) translateZ(50px);
+}
+.top {
+  background: #7b878c;
+  transform: rotateX(90deg) translateZ(50px);
+  -webkit-transform: rotateX(90deg) translateZ(50px)
+}
+.bottom {
+  background: #697378;
+  transform: rotateX(-90deg) translateZ(50px);
+  -webkit-transform: rotateX(-90deg) translateZ(50px);
+}

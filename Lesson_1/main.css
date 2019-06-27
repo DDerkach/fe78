@@ -1,0 +1,36 @@
+.box-red,
+.box-gold {
+  width: 100px;
+  height: 100px;
+}
+
+.box-red {
+  background-color: red;
+}
+
+.box-gold {
+  background-color: gold;
+}
+
+/* #box2 {} */
+
+[test-attr="20"] {
+  background-color: #000;
+}
+
+/* div.box[test-attr="20"] {} */
+
+/* div.box {
+  background-color: red;
+}
+a.box {
+  background-color: gold;
+} */
+
+.test>p {
+  color: red;
+}
+
+.test p {
+  color: gold;
+}
